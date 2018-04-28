@@ -13,13 +13,12 @@ window.setTimeout(() => {
   const request = new XMLHttpRequest();
   request.open('GET', '/api/getData', true)
 
-  request.setRequestHeader('user-agent', 'http2-test');
-
   request.onload = function(result) {
     console.log('ajax:', JSON.parse(this.responseText))
     console.log(+new Date())
-  };
 
+  };
   request.send();
+
 }, 1000);
 

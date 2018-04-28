@@ -4,8 +4,8 @@
   "description": "http2测试",
   "main": "index.js",
   "scripts": {
-    "start": "node ./ndex.js",
-    "dev": "nodemon ./index.js",
+    "start": "node ./index2.js",
+    "http1": "nodemon ./index.js",
     "http2": "nodemon ./index2.js"
   },
   "author": "xiang",

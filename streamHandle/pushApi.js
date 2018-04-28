@@ -3,7 +3,7 @@ module.exports = (stream, headers) => {
   if (path.indexOf('api') >= 0) {
     // 请求api
     stream.respond({ 'content-type': 'application/json', ':status': 200 })
-    stream.end(JSON.stringify({ success: true }))
+    stream.end(JSON.stringify({ apiType: 'normal' }))
 
   } else if (path.indexOf('static') >= 0) {
     // 请求静态资源
@@ -20,7 +20,7 @@ module.exports = (stream, headers) => {
     stream.pushStream({ ':path': '/api/getData' }, (err, pushStream, headers) => {
       if (err) throw err
       pushStream.respond({ ':status': 200 , 'content-type': 'application/json'});
-      pushStream.end(JSON.stringify({ success: false }))
+      pushStream.end(JSON.stringify({ apiType: 'server push' }))
     });
     stream.respondWithFile('./src/index.html')
   }
